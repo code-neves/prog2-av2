@@ -5,3 +5,4 @@ com\mycompany\sistemaescolar\services\FachadaEscolar.class
 com\mycompany\sistemaescolar\models\Aluno.class
 com\mycompany\sistemaescolar\models\Desempenho.class
 com\mycompany\sistemaescolar\models\Professor.class
+com\mycompany\sistemaescolar\models\Turma.class

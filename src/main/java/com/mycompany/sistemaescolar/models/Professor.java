@@ -5,21 +5,30 @@
 package com.mycompany.sistemaescolar.models;
 
 public class Professor extends Pessoa {
-    private int quantidadeDeTurmas;
+    private int qtdTurmas;
+    protected String especialidade;
     
-    public Professor(String nome, String matricula, int quantidadeTurmas) {
-        super(nome, matricula);
-        this.quantidadeDeTurmas = quantidadeTurmas;
+    
+    public Professor(
+            String nome, String cpf, String email, 
+            String telefone, String especialidade, int qtdTurmas
+    ) {
+        super(nome, cpf, email, telefone);
+        this.qtdTurmas = qtdTurmas;
+        this.especialidade = especialidade;
     }
-
-    @Override
-    public double calcularMeta() {
-        return quantidadeDeTurmas * 100.0;
+    
+    public boolean atribuirNota(String matricula, double nota ) {
+        if ("1".equals(matricula)) {
+            //atribuir a notra
+            return true;
+        } else {
+            return false;
+        }
     }
-
-    @Override
-    public String obterDetalhes() {
-        return matricula + "\t" + nome + "\t\t" + quantidadeDeTurmas;
+    
+    public void registrarFrequencia() {
+        
     }
     
 }

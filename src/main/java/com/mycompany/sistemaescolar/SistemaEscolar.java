@@ -35,18 +35,24 @@ public class SistemaEscolar {
 
                 if (opcao == 1) {
                     String nome = JOptionPane.showInputDialog("Digite o nome do Aluno:");
+                    String cpf = JOptionPane.showInputDialog("Digite a cpf:");
+                    String email = JOptionPane.showInputDialog("Digite a email:");
+                    String telefone = JOptionPane.showInputDialog("Digite a telefone:");
                     String matricula = JOptionPane.showInputDialog("Digite a matricula:");
                     String notaTexto = JOptionPane.showInputDialog("Digite a nota media:");
                     double notaMedia = Double.parseDouble(notaTexto);
-                    fachada.cadastrarAluno(nome, matricula, notaMedia);
+                    fachada.cadastrarAluno(nome, cpf, email, telefone, matricula, notaMedia);
                     JOptionPane.showMessageDialog(null, "Aluno cadastrado com sucesso.");
                     
                 } else if (opcao == 2) {
                     String nome = JOptionPane.showInputDialog("Digite o nome do Professor:");
-                    String matricula = JOptionPane.showInputDialog("Digite a matricula:");
+                    String cpf = JOptionPane.showInputDialog("Digite a cpf:");
+                    String email = JOptionPane.showInputDialog("Digite a email:");
+                    String telefone = JOptionPane.showInputDialog("Digite a telefone:");
+                    String especialidade = JOptionPane.showInputDialog("Digite a matricula:");
                     String turmasTexto = JOptionPane.showInputDialog("Digite a quantidade de turmas:");
-                    int quantidadeTurmas = Integer.parseInt(turmasTexto);
-                    fachada.cadastrarProfessor(nome, matricula, quantidadeTurmas);
+                    int qtdTurmas = Integer.parseInt(turmasTexto);
+                    fachada.cadastrarProfessor(nome, cpf, email, telefone, especialidade, qtdTurmas);
                     JOptionPane.showMessageDialog(null, "Professor cadastrado com sucesso.");
                     
                 } else if (opcao == 3 || opcao == 4) {

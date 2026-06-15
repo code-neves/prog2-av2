@@ -10,19 +10,57 @@ package com.mycompany.sistemaescolar.models;
  */
 public class Aluno extends Pessoa{
     private double notaMedia;
+    private String matricula;
+    private int faltas;
     
-    public Aluno(String nome, String matricula, double notaMedia) {
-        super(nome, matricula);
+    public Aluno(
+            String nome, String cpf, double notaMedia, 
+            String matricula, String email, String telefone
+    ) {
+        super(nome, cpf, email ,telefone);
+        this.matricula = matricula;
         this.notaMedia = notaMedia;
+        this.faltas = 0;        
     }
     
-    @Override
-    public double calcularMeta() {
+    public double calcularMedia() {
         return notaMedia;
     }
     
-    @Override
-    public String obterDetalhes() {
-        return matricula + "\t" + nome + "\t\t" + notaMedia;
+    public boolean registrarFalta(int faltas) {
+        if (this.faltas < faltas) {
+            return false;
+        } else {
+            this.faltas += faltas;
+            return true;
+        }
+    }
+    
+    public void consultarDesempenho () {
+    
+    }  
+
+    public double getNotaMedia() {
+        return notaMedia;
+    }
+
+    public void setNotaMedia(double notaMedia) {
+        this.notaMedia = notaMedia;
+    }
+
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
+
+    public int getFaltas() {
+        return faltas;
+    }
+
+    public void setFaltas(int faltas) {
+        this.faltas = faltas;
     }
 }

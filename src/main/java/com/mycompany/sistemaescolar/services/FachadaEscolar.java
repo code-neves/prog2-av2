@@ -5,27 +5,32 @@
 package com.mycompany.sistemaescolar.services;
 
 import com.mycompany.sistemaescolar.models.Aluno;
-import com.mycompany.sistemaescolar.models.Pessoa;
 import com.mycompany.sistemaescolar.models.Professor;
 import com.mycompany.sistemaescolar.exceptions.UserNotFoundException;
 
 import java.util.ArrayList;
 
 public class FachadaEscolar {
-    private ArrayList<Pessoa> listaPessoas;
-
+    private ArrayList<Professor> listProfessores;
+    private ArrayList<Aluno> listAlunos;
+    
     public FachadaEscolar() {
-        this.listaPessoas = new ArrayList<>();
+        this.listProfessores = new ArrayList<>();
+        this.listAlunos = new ArrayList<>();
     }
 
-    public void cadastrarAluno(String nome, String matricula, double notaMedia) {
-        Pessoa aluno = new Aluno(nome, matricula, notaMedia);
-        listaPessoas.add(aluno);
+    public void cadastrarAluno(String nome, String cpf, String email, 
+            String telefone,String matricula, double notaMedia) {
+        Aluno aluno = new Aluno(nome,cpf, notaMedia, email, telefone, matricula);
+        listAlunos.add(aluno);
     }
 
-    public void cadastrarProfessor(String nome, String matricula, int quantidadeTurmas) {
-        Pessoa professor = new Professor(nome, matricula, quantidadeTurmas);
-        listaPessoas.add(professor);
+    public void cadastrarProfessor(String nome, String cpf, String email, 
+            String telefone, String especialidade , int qtdTurmas
+    ) {
+        Professor professor = new Professor(nome, cpf, email,telefone,
+                especialidade, qtdTurmas);
+        listProfessores.add(professor);
     }
 
     public String listarAlunos() throws UserNotFoundException {
@@ -33,9 +38,8 @@ public class FachadaEscolar {
         tabelaDados += "--------------------------------------------------\n";
         boolean encontrouRegistros = false;
 
-        for (Pessoa pessoa : listaPessoas) {
+        for (Aluno pessoa : listAlunos) {
             if (pessoa instanceof Aluno) {
-                tabelaDados += pessoa.obterDetalhes() + "\n";
                 encontrouRegistros = true;
             }
         }
@@ -52,9 +56,8 @@ public class FachadaEscolar {
         tabelaDados += "--------------------------------------------------\n";
         boolean encontrouRegistros = false;
 
-        for (Pessoa pessoa : listaPessoas) {
+        for (Professor pessoa : listProfessores) {
             if (pessoa instanceof Professor) {
-                tabelaDados += pessoa.obterDetalhes() + "\n";
                 encontrouRegistros = true;
             }
         }
