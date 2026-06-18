@@ -8,7 +8,9 @@ package com.mycompany.sistemaescolar.models;
  *
  * @author rafae
  */
-public abstract class Pessoa {
+import java.io.Serializable;
+public abstract class Pessoa implements Serializable {
+    private static final long serialVersionUID = 1L;
     protected String nome;
     protected String cpf;
     protected String email;
@@ -31,6 +33,25 @@ public abstract class Pessoa {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+    public String getCpf() {
+        return cpf;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
 }

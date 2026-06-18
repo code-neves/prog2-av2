@@ -1,3 +1,4 @@
+com\mycompany\sistemaescolar\models\Disciplina.class
 com\mycompany\sistemaescolar\exceptions\UserNotFoundException.class
 com\mycompany\sistemaescolar\SistemaEscolar.class
 com\mycompany\sistemaescolar\models\Pessoa.class

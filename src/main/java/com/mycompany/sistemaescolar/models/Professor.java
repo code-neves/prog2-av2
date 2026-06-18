@@ -5,6 +5,7 @@
 package com.mycompany.sistemaescolar.models;
 
 public class Professor extends Pessoa {
+    private static final long serialVersionUID = 1L;
     private int qtdTurmas;
     protected String especialidade;
     
@@ -18,17 +19,33 @@ public class Professor extends Pessoa {
         this.especialidade = especialidade;
     }
     
-    public boolean atribuirNota(String matricula, double nota ) {
-        if ("1".equals(matricula)) {
-            //atribuir a notra
+    public boolean atribuirNota(Aluno aluno, double nota) {
+        if (aluno != null && nota >= 0.0 && nota <= 10.0) {
+            aluno.setNotaMedia(nota);
             return true;
-        } else {
-            return false;
+        }
+        return false;
+    }
+   public void registrarFrequencia(Aluno aluno, int quantidadeFaltas) {
+        if (aluno != null) {
+            aluno.registrarFalta(quantidadeFaltas);
         }
     }
-    
-    public void registrarFrequencia() {
-        
+
+    public int getQtdTurmas() {
+        return qtdTurmas;
     }
-    
+
+    public void setQtdTurmas(int qtdTurmas) {
+        this.qtdTurmas = qtdTurmas;
+    }
+
+    public String getEspecialidade() {
+        return especialidade;
+    }
+
+    public void setEspecialidade(String especialidade) {
+        this.especialidade = especialidade;
+    }
 }
+    
